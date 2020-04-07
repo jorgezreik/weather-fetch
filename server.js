@@ -5,6 +5,8 @@ const app = express();
 
 require('dotenv').config();
 
+const port = process.env.PORT || 3000;
+
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,6 +35,6 @@ app.post('/', function (req, res) {
   });
 });
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}/`);
 });
