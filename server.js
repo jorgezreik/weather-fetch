@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const apiKey = process.env.API_KEY;
 const app = express();
 
-require('dotenv');
+require('dotenv').config();
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -31,4 +31,8 @@ app.post('/', function (req, res) {
       }
     }
   });
+});
+
+server.listen(process.env.PORT || 3000, () => {
+  console.log(`Listening on http://localhost:${port}/`);
 });
