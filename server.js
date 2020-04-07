@@ -1,12 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
-const apiKey = process.env.API_KEY;
+const port = process.env.PORT || 3000;
 const app = express();
 
 require('dotenv').config();
-
-const port = process.env.PORT || 3000;
+const apiKey = process.env.API_KEY;
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -27,6 +26,7 @@ app.post('/', function (req, res) {
       let weather = JSON.parse(body);
       if (weather.main == undefined) {
         res.render('index', {weather: null, error: 'Error, please try again'});
+        console.log(url);
       }
       else {
         let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
