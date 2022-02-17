@@ -1,6 +1,6 @@
 # Weather Fetch
 
-A simple web app to get the weather at a location. Live at https://weather-fetch.herokuapp.com
+A simple web app to get the weather at a location.
 
 ## Credits
 
